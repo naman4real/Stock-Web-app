@@ -1,0 +1,27 @@
+<ng-template #buy_content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{modalData[0].symbol}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="ml-2 form-group">
+          <span>Current Price: {{price}}</span><br>
+            <div class="inputs">
+                <label for="quantity">Quantity</label>
+                <input name="qInput"  [(ngModel)]="q" class="form-control" id="quantity" min="0" max="999" oninput="validity.valid||(value='');" class="form-control" value="0"  type="number" ngbAutofocus >
+            </div>   
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <div class="col pl-0">
+            Total: {{(price*q).toFixed(2)}}
+        </div>
+        <div class="row">
+          <button type="button" [ngClass]="getClass()" [disabled]="q<=0" (click)="modal.close('Save click');buy()">Buy</button>
+        </div>
+    </div>
+</ng-template>

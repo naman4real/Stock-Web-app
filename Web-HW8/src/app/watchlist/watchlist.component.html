@@ -1,0 +1,19 @@
+
+
+<div class="main col-12 col-sm-9 m-sm-auto px-3 px-sm-0 py-4 p-sm-5 mt-4" >
+    <div class="col-12 px-0 mb-4"><h1 > My Watchlist</h1></div>
+    
+    <app-warning-alert class="col-12 mt-5" *ngIf="isEmpty()"></app-warning-alert>
+    <div #spinner class="spinner" *ngIf="showSpinner && !isEmpty()">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+    <div class="col-12 px-0 mt-5 mb-4" *ngIf="goToChild && !isEmpty()">
+        <app-watchlist-card #card *ngFor="let item of storage" [watchlistCard]="item" (done)="getChildOutput($event)"></app-watchlist-card>   
+    </div>
+</div>
+
+
+
+
+
+

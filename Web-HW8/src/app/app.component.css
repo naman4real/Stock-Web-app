@@ -1,0 +1,50 @@
+
+.navbar-custom { 
+    background-color: #6f4ffb;   
+} 
+
+.title{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
+}
+
+.custom-button{
+    border: none;
+    background-color: inherit;
+    color:#a78efb;
+    padding: 5px 15px;
+
+}
+.custom-button:hover{
+    color:#cdb2f1
+}
+.custom-button-focus{
+    outline: none;
+    border: white solid 2px;
+    border-radius: 13px;
+    background-color: inherit;
+    color:white;
+    padding: 6.5px 15px;
+}
+.custom-button:focus{
+    outline: 0;
+}
+
+.heading{
+    font-size: 70px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+
+  /* .myBg{
+      background-color: #dddddd;
+  } */

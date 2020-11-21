@@ -1,0 +1,22 @@
+.card-header{
+    text-align: left;
+}
+.card-footer{
+    text-align: right;
+}
+.card-body{
+    font-size: 20px;
+}
+button{
+    font-size: 13px;
+}
+
+.symbol{
+    font-size: 28px; 
+    font-weight: 500;
+}
+.name{
+    font-size: 20px;
+    color: #767981;
+    font-weight: 500;
+}

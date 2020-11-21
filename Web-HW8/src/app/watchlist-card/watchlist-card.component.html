@@ -1,0 +1,36 @@
+<div *ngIf="!close && showCard()" class="card mt-3" style="cursor: pointer; " (click)="showDetails()">
+   
+    <div class="card-body p-1" >
+        <button type="button" class="close pr-1" aria-label="Close" (click)="closeCard()">
+            <span aria-hidden="true" style="font-weight: 400;">&times;</span>
+    
+        </button>
+        <div class="row px-3" >
+            <div class="col-6 ">
+                <h1 class="card-title">{{watchlistCard[0].symbol}}</h1>
+            </div>
+            <!-- <div class="col-6 col-sm-2">
+            </div> -->
+            <div class="col-6  " style="text-align: right;">          
+                <h1 class="price" [ngStyle]="{'color': getColor()}">{{price}}</h1>
+            </div>
+        </div>
+        
+        <div class="row px-3" style="margin-top: -1%;">   
+            <div class="col-6 col-sm-6">
+                <h3 class="name">{{watchlistCard[0].name}}</h3>
+            </div>
+
+            <div class="col-6 col-sm-6" style="text-align: right;">
+           
+                <span [ngStyle]="{'color': getColor()}">
+                    <i [ngClass]= "getClass()"></i></span>&nbsp;  
+                    <span class="change" [ngStyle]="{'color': getColor()}">{{change}}</span > &nbsp;
+                    <span class="changePercent" [ngStyle]="{'color': getColor()}">({{changePercent}}%)
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+

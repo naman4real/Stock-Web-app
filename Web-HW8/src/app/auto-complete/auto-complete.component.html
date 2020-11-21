@@ -1,0 +1,45 @@
+
+<div class="row justify-content-center" style="margin-top: 100px;" >
+  <div class="col-auto py-4" style="background-color: white;">
+    <b style="font-size: 70px;">STOCK</b>
+  </div>
+  <div class="col-auto py-4" style="background-color: white;">
+    <b style="font-size: 70px;">SEARCH</b>
+  </div>
+</div>
+
+
+<form class="row justify-content-center mt-5">
+    <div style="width: 250px;">
+      <div class="input-group">
+        <input #nameInput
+        type="text" 
+        class="form-control" 
+        placeholder="Enter Stock Name" 
+        aria-describedby="inputGroupPrepend2" 
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        required>  
+
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+
+          <mat-option *ngIf="!showOptions && !fieldEmpty">
+            <div #spinner class="spinner" >
+              <mat-spinner diameter="40" ></mat-spinner>
+            </div>
+          </mat-option>
+          <ng-container *ngIf="showOptions">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+        <div class="input-group-prepend">
+          <button class="searchIcon" type="submit" (click)="onClick($event)">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+</form>

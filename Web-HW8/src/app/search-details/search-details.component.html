@@ -1,0 +1,147 @@
+
+<div class="spinner" *ngIf="!hideLoader()">
+    <mat-spinner diameter="50" id="sp" ></mat-spinner>
+</div>
+<div class="col-11 col-lg-9 col-md-10 m-auto">
+    <app-success-alert [symbol]="symbol" *ngIf="watchListed() && clicked"></app-success-alert>
+    <app-danger-alert [symbol]="symbol" *ngIf="!watchListed() && clicked"></app-danger-alert>
+    <app-buy-alert [symbol]="symbol" *ngIf="bought"></app-buy-alert>
+    <app-invalid-ticker-alert  *ngIf="valid==2"></app-invalid-ticker-alert>
+</div>
+
+<div class='col-11 col-lg-9 col-md-10 m-auto' *ngIf="hideLoader() && valid==1">
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <span id="symbol">{{symbol}}</span>&nbsp;&nbsp;
+            <svg *ngIf="!watchListed()" (click)="toggle($event)" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+            </svg> 
+            <svg *ngIf="watchListed()" (click)="toggle($event)" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="#f7d704" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+        </div>
+        <div class="col-6 text-right">
+            <span id="lastPrice" [ngStyle]="{'color': getColor()}">{{lastPrice}}</span>
+        </div>
+    </div>
+
+    <div class="row py-1">
+        <div class="col-6">
+            <span id="name">{{name}}</span>
+        </div>
+        <div class="col-6 text-right">
+            <span [ngStyle]="{'color': getColor()}"><i [ngClass]= "getClass()"></i></span>&nbsp;&nbsp;
+            <span id="change"  [ngStyle]="{'color': getColor()}">{{change}}</span> &nbsp;
+            <span id="changePercent"  [ngStyle]="{'color': getColor()}">({{changePercent}}%)</span>
+        </div>
+    </div>
+
+    <div class="row py-sm-1 pt-2">
+        <div class="col-6">
+            <span id="code">{{code}}</span>
+        </div>
+        <div class="col-6 text-right">
+            <span id="time">{{time}}</span>
+        </div>
+    </div>
+
+    <div class="row py-1">
+        <button class="btn btn-success ml-3" (click)="modal.open();">Buy</button>
+        <app-buy-modal #modal [modalData]="modalData"></app-buy-modal>
+    </div>       
+    
+
+
+    
+</div>
+
+<div class="row justify-content-center mt-3 mb-5" *ngIf="hideLoader() && valid==1">
+    <app-market-open-alert *ngIf="marketOpen && hideLoader()"></app-market-open-alert>
+    <app-market-close-alert *ngIf="!marketOpen && hideLoader()" [closeTime]="closeTime"></app-market-close-alert>
+</div>
+
+
+<div class="tabs col-11 col-lg-9 col-md-10 m-auto" *ngIf="hideLoader() && valid==1" >
+    <mat-tab-group animationDuration="0ms" dynamicHeight mat-align-tabs="center">
+        <mat-tab label="Summary" >
+            <div class="row m-sm-2" >
+                <div class="col col-sm-6">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-5 col-md-6 col-5 pr-0 justify-content-left mt-4">
+                            <div class="content" >
+                                <span>{{high}}</span><br>
+                                <span>{{low}}</span><br>
+                                <span>{{open}}</span><br>
+                                <span>{{prev}}</span><br>
+                                <span>{{vol}}</span><br>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-5 pr-0 mt-4" >
+                            <div class="content pl-lg-5" *ngIf="marketOpen" >
+                                <span>{{mid}}</span><br>
+                                <span>{{askP}}</span><br>
+                                <span>{{askS}}</span><br>
+                                <span>{{bidP}}</span><br>
+                                <span>{{bidS}}</span><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 10%;">
+                        <div class="col-10 col-lg-12 col-md-12 pr-lg-5 m-auto" >
+                            <h3 style="text-align: center; font-weight: 500; font-size: 18px;">Company's Description</h3><br>
+                            <span>{{startDate}}</span><br><br>
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+           
+                </div>
+                
+                <div *ngIf="data3" class="col-11 pl-5 pl-sm-0 pl-md-2 col-sm-6 pl-lg-4" id="summaryChart" style="margin-top: 1.5%;">
+ 
+                        <highcharts-chart class="row11"
+                        style="display: block;max-width:500px"
+                        [Highcharts]="Highcharts" 
+                        [constructorType]="'stockChart'" 
+                        [options]="smallChartOptions">
+                    </highcharts-chart>
+                
+     
+    
+                </div>
+            </div>
+
+            
+     
+        </mat-tab>
+
+        <mat-tab label="Top News" *ngIf="hideLoader()">
+            <ng-template matTabContent>
+                <div class="row my-4 mx-auto " style="width: 99%;" >
+                    <div class="col-lg-6 col-sm-12" *ngFor="let card of cards" style="margin-bottom: 15px; margin-top: 10px;"  >
+                        
+                        <app-news-card [newsCard]="card"></app-news-card>
+                        
+                    </div>
+                </div>
+            </ng-template>
+        </mat-tab>
+        
+        <mat-tab label="Charts" *ngIf="hideLoader()">
+            <ng-template matTabContent>
+                <div class="container" style="width:100%;" >
+                    <div class="row justify-content-center">
+                        <highcharts-chart style="width: 100%;display: block;height:600px;"
+                            [Highcharts]="Highcharts" 
+                            [constructorType]="'stockChart'" 
+                            [options]="chartOptions">
+                        </highcharts-chart>
+                    </div>
+                </div>
+    
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div>

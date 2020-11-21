@@ -1,0 +1,92 @@
+<div *ngIf="quantity>0 && showCard()" class="card mt-3">
+    <div class="card-header">
+      <span class="symbol" >{{portfolioCard[0].symbol}}</span>&nbsp;&nbsp;<span class="name">{{portfolioCard[0].name}}</span>
+    </div>
+    <div class="card-body p-1 py-3 p-sm-auto">
+      <div class="row">
+        <div class="col-12 col-sm">
+          <div class="row p-1">
+            
+            <div class="col" >
+              Quantity:
+            </div>
+            <div class="col" style="text-align: right;">
+              {{quantity}}
+            </div>
+  
+          </div>
+  
+          <div class="row p-1">
+            
+            <div class="col-7" >
+              Avg. Cost/Share:
+            </div>
+            <div class="col-5" style="text-align: right;">
+              {{avgCostPerShare}}
+            </div>
+  
+          </div>
+  
+          <div class="row p-1">
+            
+            <div class="col" >
+              Total Cost:
+            </div>
+            <div class="col" style="text-align: right;">
+              {{totalCost}}
+            </div>
+  
+          </div>
+  
+        </div>
+  
+  
+        <div class="col-12 col-sm">
+          <div class="row p-1">
+         
+            <div class="col" >
+              Change:
+            </div>
+            <div class="col" style="text-align: right;" [ngStyle]="{'color': getColor()}">
+              <span style="font-size: 15px;"><i [ngClass]= "getClass()"></i></span>&nbsp;&nbsp;{{change}}
+            </div>
+  
+          </div>
+  
+          <div class="row p-1" style="margin-top: 0.4%;">
+            
+            <div class="col">
+              Current Price:
+            </div>
+            <div class="col" style="text-align: right;" [ngStyle]="{'color': getColor()}">
+              {{price}}
+            </div>
+            
+          </div>
+    
+          <div class="row p-1" style="margin-top: 0.4%;">
+            
+            <div class="col" >
+              Market Value:
+            </div>
+            <div class="col" style="text-align: right;" [ngStyle]="{'color': getColor()}">
+              {{marketValue}}
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+     
+      
+    </div>
+    <div class="card-footer text-muted">
+      <button type="button" (click)="buy_modal.open()" class="btn btn-primary">Buy</button> &nbsp;&nbsp;<button type="button" (click)="sell_modal.open()" class="btn btn-danger">Sell</button>
+    </div>
+  </div>
+
+
+  <app-buy-modal #buy_modal [modalData]="portfolioCard" ></app-buy-modal>
+  <app-sell-modal #sell_modal [modalData]="portfolioCard" [quantity]="quantity"></app-sell-modal>
+
+  

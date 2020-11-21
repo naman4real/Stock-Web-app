@@ -1,0 +1,25 @@
+.card-body{
+    padding-bottom:0 ;
+}
+.card{
+    /* width: 70%; */
+    margin: auto;
+}
+.close{
+    width: fit-content; 
+    margin-left:98%;
+
+    outline:0;
+}
+
+.card-title, .price{
+    font-weight: 500; 
+    font-size: 28px;
+}
+
+.name, .change, .changePercent{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+

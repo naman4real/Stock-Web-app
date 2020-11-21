@@ -1,0 +1,36 @@
+<head>
+  <link rel="stylesheet" href="app.component.css">
+</head>
+
+
+<nav class="navbar  navbar-expand-lg navbar-light navbar-custom sticky-top">
+  <span class="title">Stock Search</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline: 0;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">          
+            <button data-toggle="collapse" data-target=".collapse.show" type="button" [ngClass]="searchClass()" (click)="search($event)">Search</button>
+          </li>
+          <li class="nav-item ">          
+            <button data-toggle="collapse" data-target=".collapse.show" type="button" [ngClass]="watchlistClass()" (click)="watchlist($event)">Watchlist</button>
+          </li>
+          <li class="nav-item">          
+            <button data-toggle="collapse" data-target=".collapse.show" type="button" [ngClass]="portfolioClass()" (click)="portfolio($event)">Portfolio</button>
+          </li>
+        </ul>
+  </div>
+</nav>
+
+
+<app-auto-complete *ngIf="router.url=='/'"></app-auto-complete>
+
+<router-outlet></router-outlet>
+<!-- <footer id="sticky-footer" class=" mt-4 py-3 myBg ">
+  <div class="container text-center">
+    <span>Powered by Tiingo. Developed by Naman Gupta</span>
+  </div>
+</footer> -->

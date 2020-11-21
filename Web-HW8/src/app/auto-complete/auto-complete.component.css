@@ -1,0 +1,92 @@
+/* .searchBar{
+
+    margin-top: 80px;
+} */
+/* 
+.mycustom {
+    border: solid 1px green;
+    position: relative;
+    }
+    .mycustom input[type=text] {
+    border: none;
+    width: 100%;
+    padding-right: 123px;
+    }
+    .mycustom .input-group-prepend {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    bottom: 4px;z-index:9;
+    } */
+
+
+.form-control{
+    border-radius: 20px;
+    border: #6f4ffb 0.2vw solid;
+}
+
+.fa{
+    color: #6f4ffb !important;
+}
+.input-group>.form-control:not(:last-child) {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.input-group-prepend {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index:9;
+}
+.searchIcon{
+    border:none;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+.heading{
+    font-size: 70px;
+}
+
+.py-4{
+    background-color: #dddddd;
+}
+
+::ng-deep .spinner{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+::ng-deep .mat-autocomplete-panel{
+    width: 75% !important;
+    margin-left: 5%;
+    margin-top: -3%;
+}
+
+
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+label:focus
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+

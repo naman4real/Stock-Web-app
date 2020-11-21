@@ -1,0 +1,23 @@
+h1{
+    margin: auto;
+    font-size: 40px; 
+    font-weight: 500;
+
+    padding: 0;
+}
+app-watchlist-card{
+    width: 100%;
+    margin-top: 1%;
+
+}
+
+::ng-deep .spinner{
+    width: 100%;
+    margin-top: 5%;
+}
+
+::ng-deep mat-spinner{
+    margin: auto;
+    width: 10%;
+    
+}

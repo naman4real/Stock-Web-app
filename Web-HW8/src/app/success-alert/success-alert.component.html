@@ -1,0 +1,20 @@
+<!-- <div class="row mx-auto mt-3" style="width: 97%;">
+    <div #alert *ngIf="show && !close" class="alert alert-success col-11 col-sm-9 m-auto" role="alert" >
+        {{symbol}} added to Watchlist.
+        <button type="button" class="close" aria-label="Close" (click)=closeAlert()>
+            <span aria-hidden="true" style="font-weight: 400;">&times;</span>
+    
+        </button>
+    </div>
+    
+</div> -->
+
+
+<div #alert *ngIf="show && !close" class="row alert alert-success justify-content-center mt-4 mx-1" role="alert" >
+    <div class="col-11 justify-content-center">{{symbol}} added to Watchlist.</div>
+    <div class="col-1 pr-0"><button type="button" class="close align-right " aria-label="Close" (click)=closeAlert()>
+        <span aria-hidden="true" style="font-weight: 400;">&times;</span>
+
+    </button></div>
+    
+</div>

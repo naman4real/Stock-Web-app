@@ -1,0 +1,134 @@
+.topLeft{
+    margin-top: 4%;
+    margin-left:30%;
+
+}
+.topRight{
+    margin-top: 4%;
+    text-align: right;
+    margin-right:30% ;
+    
+}
+/* span{
+    line-height: 35px;
+} */
+/* .topRight span{
+    line-height: 35px;
+} */
+/* 
+@media only screen and (max-width: 400px) {
+    .row11 {
+        max-width: 200px;
+        background-color: blue;
+    }
+  } */
+
+  @media screen and (max-width: 800px) {
+    .row11 {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .row11 {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .row11 {
+      width: 250px;
+    }
+  }
+ 
+  /* @media screen and (max-width: 800px) {
+    .row12 {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .row12 {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .row12 {
+      width: 200px;
+    }
+  } */
+
+
+
+#symbol, #lastPrice{
+    font-size: 35px;
+    font-weight: 500;
+}
+
+#name, #change, #changePercent{
+    
+    font-size: 23px;
+    font-weight: 500;
+}
+
+#name{
+    color: #767981; 
+    margin-top:0 ;
+    
+}
+
+.tabs{
+    
+    
+    margin-top: 3%;
+}
+
+
+
+
+.card{
+    background-color: #f9f9f9;
+    margin-top: 5%;
+}
+
+
+.form-group{
+    margin-left: 3%;
+}
+
+::ng-deep.mat-tab-link,  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 33.33% !important;
+}
+
+::ng-deep.mat-tab-group.mat-primary ::ng-deep.mat-ink-bar, ::ng-deep.mat-tab-nav-bar.mat-primary ::ng-deep.mat-ink-bar {
+    background-color:  #9e87d4;
+}
+
+.positive{
+    color: green;
+}
+
+.negative{
+    color: red;
+}
+
+.neutral{
+    color: black;
+}
+
+svg{
+    margin-top: -25px;
+    cursor: pointer;
+}
+
+::ng-deep .spinner{
+    width: 100%;
+    margin-top: 5%;
+}
+
+::ng-deep mat-spinner{
+    margin: auto;
+    width: 10%;
+    
+}

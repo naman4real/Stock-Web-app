@@ -1,0 +1,7 @@
+.alert{
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0;
+    margin: auto;
+}

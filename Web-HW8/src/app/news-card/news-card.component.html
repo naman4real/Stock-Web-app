@@ -1,0 +1,37 @@
+
+<ng-template  #news_content let-modal>
+    <div class="modal-header">
+        <div class="header">
+            <span id="heading">{{newsCard.newsSource}}</span><br>
+            {{newsCard.publishedAt}}
+        </div>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" style="outline: 0;">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <span style="font-size: 17px; font-weight: 580;">{{newsCard.newsTitle}}</span><br>
+      {{newsCard.newsDescription}}<br>
+      For more details click <a href={{newsCard.newsUrl}} target="_blank"> here </a>
+
+      <div class="share">
+        <h4>Share</h4>
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{newsCard.newsTitle}} {{newsCard.newsUrl}}" target="_blank"><span style="font-size: 2.7em; color: #3992ff;"><i class="fab fa-twitter"></i></span></a>
+        
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{newsCard.newsUrl}}" class="fb-xfbml-parse-ignore"><span style="font-size: 2.7em; color: #001eff; margin-left: 2%;"><i class="fab fa-facebook-square" aria-hidden="true"></i></span></a>
+      </div>
+    </div>
+</ng-template>
+
+<button class="button modalButton h-100 w-100" (click)="openModal(news_content)" >
+    <div class="row py-3 px-2 w-100 m-0" >
+        <div class="col-sm-3 p-0" >
+            <img class="card-img" src={{newsCard.imageUrl}} alt="News Image">
+        </div>
+        <div class="col-sm-9 py-sm-2 px-sm-3 p-0">
+            
+                <p class="card-text" style="font-size: 0.9rem;  text-align: left;">{{newsCard.title}}</p>
+            
+        </div>                     
+    </div>  
+</button>  
